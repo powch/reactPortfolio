@@ -18,7 +18,7 @@ const App = ({ appState }) => {
       }}
     >
       <PageShell appState={appState}>
-        <h2>fish tiddies</h2>
+        <h2>portfolio</h2>
       </PageShell>
     </Box>
   );
