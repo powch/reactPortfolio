@@ -1,9 +1,10 @@
-import React, { useReducer } from "react";
-import ReactDom from "react-dom";
+import React, { useReducer, useEffect } from "react";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 import "regenerator-runtime/runtime";
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, GlobalStyles } from "@mui/material";
+import WebFont from "webfontloader";
 
 import { theme } from "./theme";
 import { reducer, initialState } from "./App.reducer";
@@ -11,9 +12,18 @@ import { reducer, initialState } from "./App.reducer";
 const AppProvider = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Fira Code"],
+      },
+    });
+  }, []);
+
   return (
     <>
       <CssBaseline />
+      <GlobalStyles styles={{ "*": { fontFamily: "Fira Code" } }} />
       <ThemeProvider theme={theme}>
         <App appState={{ state, dispatch }} />
       </ThemeProvider>
@@ -21,4 +31,5 @@ const AppProvider = () => {
   );
 };
 
-ReactDom.render(<AppProvider />, document.getElementById("app"));
+const root = createRoot(document.getElementById("app"));
+root.render(<AppProvider />);

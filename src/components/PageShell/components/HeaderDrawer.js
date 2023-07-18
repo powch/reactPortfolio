@@ -1,5 +1,4 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 import {
   Drawer,
   List,
@@ -7,74 +6,20 @@ import {
   ListItemButton,
   ListItemText,
   ListItemIcon,
-  Divider,
 } from "@mui/material";
 import { Login, Logout, Person, Add, Dashboard } from "@mui/icons-material";
 
-const HeaderDrawer = ({
-  isOpen,
-  handleClose,
-  handleRequestClick,
-  isUserAdmin,
-}) => {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-
+const HeaderDrawer = ({ isOpen, handleClose, pages, handlePageClick }) => {
   return (
     <Drawer anchor="right" open={isOpen} onClose={handleClose}>
       <List>
-        {isAuthenticated ? (
-          <>
-            <ListItem>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Person color="primary" />
-                </ListItemIcon>
-                <ListItemText>Profile</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <ListItem>
-              <ListItemButton onClick={handleRequestClick}>
-                <ListItemIcon>
-                  <Add color="primary" />
-                </ListItemIcon>
-                <ListItemText>Asset request</ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <Divider />
-            {isUserAdmin ? (
-              <>
-                <ListItem>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <Dashboard color="primary" />
-                    </ListItemIcon>
-                    <ListItemText>Admin dashboard</ListItemText>
-                  </ListItemButton>
-                </ListItem>
-                <Divider />
-              </>
-            ) : null}
-          </>
-        ) : null}
-        <ListItem>
-          <ListItemButton
-            onClick={
-              isAuthenticated ? () => logout() : () => loginWithRedirect()
-            }
-          >
-            <ListItemIcon>
-              {isAuthenticated ? (
-                <Logout color="primary" />
-              ) : (
-                <Login color="primary" />
-              )}
-            </ListItemIcon>
-            <ListItemText>
-              {isAuthenticated ? "Log out" : "Log in"}
-            </ListItemText>
-          </ListItemButton>
-        </ListItem>
-        {!isAuthenticated ? <Divider /> : null}
+        {pages.map((page, idx) => (
+          <ListItem key={idx}>
+            <ListItemButton onClick={() => handlePageClick(page)}>
+              <ListItemText>{page}</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
     </Drawer>
   );

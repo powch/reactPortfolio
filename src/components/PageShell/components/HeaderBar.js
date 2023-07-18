@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import { IconButton, AppBar, Toolbar, Input, Typography } from "@mui/material";
+import {
+  IconButton,
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  Typography,
+} from "@mui/material";
 import { Menu as MenuIcon, Search as SearchIcon } from "@mui/icons-material";
 
-import { REQUEST_FORM } from "../../../constants";
 import HeaderDrawer from "./HeaderDrawer";
+import ButtonCluster from "./ButtonCluster";
+import { pages } from "../../../constants";
 
 const HeaderBar = ({ appState }) => {
   const { state, dispatch } = appState;
   const { user } = state;
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleRequestClick = () => {
-    dispatch({ action: "CHANGE_PAGE", payload: REQUEST_FORM });
-    setIsOpen(false);
-  };
+  const handlePageClick = (page) =>
+    dispatch({ action: "CHANGE_PAGE", payload: page });
 
   return (
     <>
-      <AppBar sx={{ backgroundColor: "#fff" }} position="fixed">
+      <AppBar sx={{ backgroundColor: "#000" }} position="fixed">
         <Toolbar
           sx={{
             maxWidth: "lg",
@@ -25,16 +31,17 @@ const HeaderBar = ({ appState }) => {
             width: "100%",
           }}
         >
-          <Typography variant="h6" sx={{ mr: 2, color: "#30475E" }}>
-            VTA
+          <Typography
+            variant="h6"
+            sx={{ mr: "auto", color: "#f0f0f0", fontFamily: "Fira Code" }}
+          >
+            chace powell
           </Typography>
-          <Input
-            fullWidth
-            margin="dense"
-            placeholder="Search"
-            startAdornment={<SearchIcon />}
-          />
-          <IconButton onClick={() => setIsOpen(true)} sx={{ ml: 2 }}>
+          <ButtonCluster pages={pages} handlePageClick={handlePageClick} />
+          <IconButton
+            onClick={() => setIsOpen(true)}
+            sx={{ ml: 2, display: { xs: "flex", md: "none" } }}
+          >
             <MenuIcon color="primary" />
           </IconButton>
         </Toolbar>
@@ -43,9 +50,9 @@ const HeaderBar = ({ appState }) => {
 
       <HeaderDrawer
         isOpen={isOpen}
-        isUserAdmin={user?.role === "admin"}
+        pages={pages}
+        handlePageClick={handlePageClick}
         handleClose={() => setIsOpen(false)}
-        handleRequestClick={handleRequestClick}
       />
     </>
   );

@@ -1,8 +1,5 @@
 export const initialState = {
-  user: null,
-  assetList: [],
-  selectedAssetId: null,
-  sortBy: "dateAdded",
+  currentPage: "portfolio"
 };
 
 export const reducer = (state, data) => {
