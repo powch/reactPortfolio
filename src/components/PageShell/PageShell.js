@@ -10,16 +10,9 @@ const PageShell = ({ appState, children }) => {
   return (
     <>
       <HeaderBar appState={appState} />
-      <Box
-        sx={{
-          height: { xs: "90%", sm: "95%" },
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <Container
+      <Container
           sx={{
+            width: '100%',
             pb: "4rem",
             pt: "1rem",
             position: "relative",
@@ -28,7 +21,6 @@ const PageShell = ({ appState, children }) => {
         >
           {children}
         </Container>
-      </Box>
     </>
   );
 };

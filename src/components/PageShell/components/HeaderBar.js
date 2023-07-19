@@ -14,8 +14,7 @@ import ButtonCluster from "./ButtonCluster";
 import { pages } from "../../../constants";
 
 const HeaderBar = ({ appState }) => {
-  const { state, dispatch } = appState;
-  const { user } = state;
+  const { dispatch } = appState;
   const [isOpen, setIsOpen] = useState(false);
 
   const handlePageClick = (page) =>

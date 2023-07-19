@@ -1,5 +1,5 @@
-import { Button, Box, Typography } from "@mui/material";
 import React from "react";
+import { Button, Box, Typography } from "@mui/material";
 
 const ButtonCluster = ({ pages, handlePageClick }) => (
   <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -7,7 +7,7 @@ const ButtonCluster = ({ pages, handlePageClick }) => (
       <React.Fragment key={`${page}-fragment`}>
         <Button
           key={page}
-          onClick={() => handlePageClick()}
+          onClick={() => handlePageClick(page)}
           sx={{
             my: 2,
             color: "#f0f0f0",

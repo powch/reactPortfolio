@@ -2,11 +2,15 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-// Internal
+// Internal imports
 import PageShell from "./components/PageShell/PageShell";
+import AboutMe from "./views/AboutMe";
+import Contacts from "./views/Contacts";
+import Projects from "./views/Projects";
 
 const App = ({ appState }) => {
-  const { state, dispatch } = appState;
+  const { state } = appState;
+  const { currentPage } = state;
 
   return (
     <>
@@ -21,7 +25,13 @@ const App = ({ appState }) => {
         }}
       >
         <PageShell appState={appState}>
-          <h2>portfolio</h2>
+          {currentPage === "about" ? (
+            <AboutMe currentPage={currentPage} />
+          ) : currentPage === "contacts" ? (
+            <Contacts currentPage={currentPage} />
+          ) : (
+            <Projects currentPage={currentPage} />
+          )}
         </PageShell>
       </Box>
     </>
