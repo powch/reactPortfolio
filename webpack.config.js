@@ -18,6 +18,10 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(png)$/i,
+        type: 'asset/resource'
+      }
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],

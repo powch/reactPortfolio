@@ -11,17 +11,22 @@ import {
 import { projects } from "../../../constants";
 import ProjectCard from "./ProjectCard";
 
-const ProjectList = () => (
-  <>
-    {projects.map(({ title, description, image }, idx) => (
-      <ProjectCard
-        key={`project-${idx}`}
-        title={title}
-        description={description}
-        image={image}
-      />
-    ))}
-  </>
-);
+const ProjectList = ({ appState }) => {
+  return (
+    <>
+      {projects.map(({ projectKey, title, description, image, source }, idx) => (
+        <ProjectCard
+          key={`project-${idx}`}
+          appState={appState}
+          projectKey={projectKey}
+          title={title}
+          description={description}
+          image={image}
+          source={source}
+        />
+      ))}
+    </>
+  );
+};
 
 export default ProjectList;

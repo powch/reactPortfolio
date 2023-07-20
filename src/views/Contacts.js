@@ -24,24 +24,34 @@ const Contacts = ({ currentPage }) => (
   <Container
     sx={{
       display: "flex",
-      flexDirection: { xs: "column", md: "row-reverse" },
+      flexDirection: "column",
       wordBreak: { xs: "break-word", md: "unset" },
+      overflow: "hidden",
     }}
   >
     <Box>
-      <Slide direction="down" in={currentPage === "contacts"}>
+      <Slide direction="left" in={currentPage === "contacts"}>
         <Typography
           variant="h1"
           sx={{
             color: "#000",
             fontFamily: "Fira Code",
+            display: "flex",
+            justifyContent: "end",
           }}
         >
           contacts
         </Typography>
       </Slide>
     </Box>
-    <Box sx={{ mr: { xs: 0, md: 5 }, pt: 3 }}>
+    <Box
+      sx={{
+        pt: 3,
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
+      <Box sx={{ display: "flex", flexGrow: 1 }} />
       <Fade in={currentPage === "contacts"}>
         <List>
           <ListItem>

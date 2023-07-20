@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Typography, Slide, Fade } from "@mui/material";
+import { Box, Typography, Slide, Fade } from "@mui/material";
 
 const AboutMe = ({ currentPage }) => (
-  <Container sx={{ display: "flex", flexDirection: "column" }}>
+  <Box sx={{ display: "flex", flexDirection: "column", width: "75%" }}>
     <Slide direction="right" in={currentPage === "about"}>
       <Typography
         variant="h1"
@@ -33,7 +33,7 @@ const AboutMe = ({ currentPage }) => (
         in nulla posuere sollicitudin aliquam ultrices sagittis.
       </Typography>
     </Fade>
-  </Container>
+  </Box>
 );
 
 export default AboutMe;

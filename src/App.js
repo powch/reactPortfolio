@@ -30,7 +30,7 @@ const App = ({ appState }) => {
           ) : currentPage === "contacts" ? (
             <Contacts currentPage={currentPage} />
           ) : (
-            <Projects currentPage={currentPage} />
+            <Projects currentPage={currentPage} appState={appState} />
           )}
         </PageShell>
       </Box>
