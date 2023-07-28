@@ -38,9 +38,6 @@ const ProjectCard = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => handlePreviewClick(projectKey)}>
-          <Typography sx={{ fontFamily: "Fira Code" }}>Preview</Typography>
-        </Button>
         <Button size="small" href={source} target="blank_">
           <Typography sx={{ fontFamily: "Fira Code" }}>Source</Typography>
         </Button>

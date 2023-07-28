@@ -13,19 +13,5 @@ export const reducer = (state, data) => {
     };
   }
 
-  if (action.includes("SELECT_PROJECT")) {
-    return {
-      ...state,
-      selectedProject: payload,
-    };
-  }
-
-  if (action.includes("CLEAR_SELECTED_PROJECT")) {
-    return {
-      ...state,
-      selectedProject: null,
-    };
-  }
-
   return state;
 };
