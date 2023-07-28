@@ -11,6 +11,8 @@ const AboutMe = ({ currentPage }) => (
           fontFamily: "Fira Code",
           mt: 1,
           mb: 1,
+          textShadow:
+            "1px 1px 0 magenta, 2px 2px 0 magenta, 3px 3px 0 magenta, 4px 4px 0 magenta, 5px 5px 0 magenta, 6px 6px 0 magenta",
         }}
       >
         about me

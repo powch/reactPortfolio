@@ -35,6 +35,8 @@ const Projects = ({ appState }) => {
               justifyContent: "center",
               mt: 1,
               mb: 1,
+              textShadow:
+            "1px 1px 0 lime, 2px 2px 0 lime, 3px 3px 0 lime, 4px 4px 0 lime, 5px 5px 0 lime, 6px 6px 0 lime",
             }}
           >
             projects

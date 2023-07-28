@@ -38,6 +38,8 @@ const Contacts = ({ currentPage }) => (
             fontFamily: "Fira Code",
             display: "flex",
             justifyContent: "end",
+            textShadow:
+            "1px 1px 0 cyan, 2px 2px 0 cyan, 3px 3px 0 cyan, 4px 4px 0 cyan, 5px 5px 0 cyan, 6px 6px 0 cyan",
           }}
         >
           contacts
